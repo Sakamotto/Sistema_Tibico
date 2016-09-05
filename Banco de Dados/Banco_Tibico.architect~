@@ -4,7 +4,16 @@
  <print-settings numCopies="1" zoom="1.0" pageNumbersPrinted="true" orientation="1" paperWidth="612.0" paperHeight="792.0" leftBorder="50.0" rightBorder="50.0" topBorder="50.0" bottomBorder="50.0" />
  <project-data-sources>
   <data-source id="DS0">
+   <property key="Connection Type" value="PostgreSQL" />
    <property key="Logical" value="Modelo de Dados" />
+   <property key="JDBC URL" value="jdbc:postgresql://localhost:5432/tibico" />
+   <property key="UID" value="postgres" />
+   <property key="PWD" value="admin123" />
+   <property key="ca.sqlpower.architect.etl.kettle.database" value="" />
+   <property key="ca.sqlpower.architect.etl.kettle.port" value="" />
+   <property key="ca.sqlpower.architect.etl.kettle.hostname" value="" />
+   <property key="ca.sqlpower.architect.etl.kettle.repos.login" value="" />
+   <property key="ca.sqlpower.architect.etl.kettle.repos.password" value="" />
   </data-source>
  </project-data-sources>
  <source-databases>
@@ -477,7 +486,7 @@
   <table-pane table-ref="TAB22" x="582" y="428" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB36" x="960" y="741" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB45" x="937" y="1059" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-pane table-ref="TAB57" x="537" y="796" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB57" x="557" y="831" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB64" x="1514" y="127" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB77" x="937" y="627" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB83" x="961" y="449" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
@@ -487,7 +496,7 @@
   <table-pane table-ref="TAB111" x="130" y="137" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-link relationship-ref="REL116" pkConnection="0.7861635220125787" fkConnection="0.23076923076923078" rLineColor="0x555555" pkLabelText="" fkLabelText="" orientation="33"/>
   <table-link relationship-ref="REL132" pkConnection="0.5381818181818182" fkConnection="0.46153846153846156" rLineColor="0x555555" pkLabelText="" fkLabelText="" orientation="72"/>
-  <table-link relationship-ref="REL128" pkConnection="0.825" fkConnection="0.5" rLineColor="0x555555" pkLabelText="" fkLabelText="" orientation="18"/>
+  <table-link relationship-ref="REL128" pkConnection="0.825" fkConnection="0.1111111111111111" rLineColor="0x555555" pkLabelText="" fkLabelText="" orientation="18"/>
   <table-link relationship-ref="REL118" pkConnection="0.3333333333333333" fkConnection="0.3769633507853403" rLineColor="0x555555" pkLabelText="" fkLabelText="" orientation="33"/>
   <table-link relationship-ref="REL134" pkConnection="0.5232558139534884" fkConnection="0.7916666666666666" rLineColor="0x555555" pkLabelText="" fkLabelText="" orientation="20"/>
   <table-link relationship-ref="REL120" pkConnection="0.4891304347826087" fkConnection="0.4980544747081712" rLineColor="0x555555" pkLabelText="" fkLabelText="" orientation="132"/>
