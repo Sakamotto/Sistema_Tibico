@@ -6,21 +6,16 @@
 	<title></title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/index.css">
+	<link rel="conexao.php">
 </head>
 <body class="background">
-
 	<div>
-		<ul>
-			<li><a href="pagematricula.php">Matrícula</a></li>
-			<!-- <li><a class="active" href="php/conexao.php">Matrícula</a></li> -->
-			<li><a href="#turmas">Turmas</a></li>
-		</ul>
+		<form action="welcome.php" method="post">
+			Name do Aluno: <input type="text" name="name"><br>
+			Turma: <input type="text" name="email"><br>
+			<input type="submit">
+		</form>
 	</div>
-	
-	<div>
-		<img src="img/logo2.png" alt="Logo" id="imagem">
-
-	</div>
-	
+		
 </body>
 </html>
