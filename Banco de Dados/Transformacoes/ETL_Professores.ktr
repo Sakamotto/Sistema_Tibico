@@ -114,7 +114,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <filename>&#x2f;home&#x2f;danilo&#x2f;Downloads&#x2f;a.csv</filename>
+    <filename>&#x2f;home&#x2f;danilo&#x2f;Documentos&#x2f;Disciplinas&#x2f;Projeto de Sistemas&#x2f;Sistema_Tibico&#x2f;Banco de Dados&#x2f;Base_de_Dados&#x2f;a.csv</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
@@ -236,7 +236,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <filename>&#x2f;home&#x2f;danilo&#x2f;Downloads&#x2f;dataSep-5-2016.csv</filename>
+    <filename>&#x2f;home&#x2f;danilo&#x2f;Documentos&#x2f;Disciplinas&#x2f;Projeto de Sistemas&#x2f;Sistema_Tibico&#x2f;Banco de Dados&#x2f;Base_de_Dados&#x2f;dataSep-5-2016.csv</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>

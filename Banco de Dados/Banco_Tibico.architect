@@ -554,21 +554,21 @@
    <relationship id="REL161" populated="true" UUID="e90a0b36-d177-429f-822d-0108b040bef2" deferrability="7" deleteRule="3" fk-table-ref="TAB113" fkCardinality="7" identifying="false" name="aula_frequencia_fk" physicalName="aula_frequencia_fk" pk-table-ref="TAB106" pkCardinality="2" updateRule="3" >
     <column-mapping id="CMP162" populated="true" UUID="29424909-ccc7-431e-bdd5-d97610bd57a5" fk-column-ref="COL117" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL107" />
    </relationship>
-   <relationship id="REL163" populated="true" UUID="149eee7a-ec4d-49b5-97c5-2d9b9831b87b" deferrability="7" deleteRule="3" fk-table-ref="TAB17" fkCardinality="7" identifying="false" name="AreaConhecimento_curso_fk" physicalName="AreaConhecimento_curso_fk" pk-table-ref="TAB120" pkCardinality="2" updateRule="3" >
+   <relationship id="REL163" populated="true" UUID="149eee7a-ec4d-49b5-97c5-2d9b9831b87b" deferrability="7" deleteRule="3" fk-table-ref="TAB17" fkCardinality="7" identifying="false" name="AreaConhecimento_curso_fk" physicalName="areaconhecimento_curso_fk" pk-table-ref="TAB120" pkCardinality="2" updateRule="3" >
     <column-mapping id="CMP164" populated="true" UUID="5faef0ce-5830-4893-b58c-744e319a7e39" fk-column-ref="COL25" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL121" />
    </relationship>
-   <relationship id="REL165" populated="true" UUID="edf05d3c-ef0d-4b13-95f4-f1949686060a" deferrability="7" deleteRule="3" fk-table-ref="TAB120" fkCardinality="7" identifying="false" name="AreaConhecimento_AreaConhecimento_fk" physicalName="AreaConhecimento_AreaConhecimento_fk" pk-table-ref="TAB120" pkCardinality="2" updateRule="3" >
+   <relationship id="REL165" populated="true" UUID="edf05d3c-ef0d-4b13-95f4-f1949686060a" deferrability="7" deleteRule="3" fk-table-ref="TAB120" fkCardinality="7" identifying="false" name="AreaConhecimento_AreaConhecimento_fk" physicalName="areaconhecimento_areaconhecimento_fk" pk-table-ref="TAB120" pkCardinality="2" updateRule="3" >
     <column-mapping id="CMP166" populated="true" UUID="e8d9fd79-a4ff-4973-af9d-55a673b31468" fk-column-ref="COL123" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL121" />
    </relationship>
-   <relationship id="REL167" populated="true" UUID="ccfbc769-d741-4a58-9069-5f5428089cb6" deferrability="7" deleteRule="3" fk-table-ref="TAB17" fkCardinality="7" identifying="false" name="grauInstrucao_curso_fk" physicalName="grauInstrucao_curso_fk" pk-table-ref="TAB126" pkCardinality="2" updateRule="3" >
+   <relationship id="REL167" populated="true" UUID="ccfbc769-d741-4a58-9069-5f5428089cb6" deferrability="7" deleteRule="3" fk-table-ref="TAB17" fkCardinality="7" identifying="false" name="grauInstrucao_curso_fk" physicalName="grauinstrucao_curso_fk" pk-table-ref="TAB126" pkCardinality="2" updateRule="3" >
     <column-mapping id="CMP168" populated="true" UUID="2feb88eb-cfa6-46f5-9885-8a955841dc5c" fk-column-ref="COL24" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL127" />
    </relationship>
   </relationships>
  </target-database>
- <ddl-generator type="ca.sqlpower.architect.ddl.MySqlDDLGenerator" allow-connection="true" target-catalog="tibico"> </ddl-generator>
+ <ddl-generator type="ca.sqlpower.architect.ddl.MySqlDDLGenerator" allow-connection="false" target-catalog="tibico"> </ddl-generator>
  <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
  <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
- <play-pen zoom="0.8408964152537143" viewportX="0" viewportY="298" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
+ <play-pen zoom="0.8408964152537143" viewportX="86" viewportY="0" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
   <table-pane table-ref="TAB17" x="548" y="145" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB28" x="1173" y="233" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB38" x="582" y="428" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
