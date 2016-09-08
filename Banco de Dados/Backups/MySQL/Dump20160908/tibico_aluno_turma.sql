@@ -16,29 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `horario`
+-- Table structure for table `aluno_turma`
 --
 
-DROP TABLE IF EXISTS `horario`;
+DROP TABLE IF EXISTS `aluno_turma`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `horario` (
-  `horario_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `aluno_turma` (
+  `aluno_turma_id` int(11) NOT NULL AUTO_INCREMENT,
+  `aluno_id` int(11) NOT NULL,
   `turma_id` int(11) NOT NULL,
-  `horarioinicio` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `horariofim` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`horario_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`aluno_turma_id`),
+  KEY `aluno_aluno_turma_fk` (`aluno_id`),
+  KEY `turma_aluno_turma_fk` (`turma_id`),
+  CONSTRAINT `aluno_aluno_turma_fk` FOREIGN KEY (`aluno_id`) REFERENCES `aluno` (`aluno_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `turma_aluno_turma_fk` FOREIGN KEY (`turma_id`) REFERENCES `turma` (`turma_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `horario`
+-- Dumping data for table `aluno_turma`
 --
 
-LOCK TABLES `horario` WRITE;
-/*!40000 ALTER TABLE `horario` DISABLE KEYS */;
-INSERT INTO `horario` VALUES (1,1,'2008-01-01 09:30:01','2008-01-01 11:20:01');
-/*!40000 ALTER TABLE `horario` ENABLE KEYS */;
+LOCK TABLES `aluno_turma` WRITE;
+/*!40000 ALTER TABLE `aluno_turma` DISABLE KEYS */;
+/*!40000 ALTER TABLE `aluno_turma` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -50,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-09-05 19:08:57
+-- Dump completed on 2016-09-08 13:20:40

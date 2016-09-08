@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: tibico
 -- ------------------------------------------------------
--- Server version	5.5.5-10.1.13-MariaDB
+-- Server version	5.7.13-0ubuntu0.16.04.2
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,28 +16,34 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `aluno_turma`
+-- Table structure for table `disciplina`
 --
 
-DROP TABLE IF EXISTS `aluno_turma`;
+DROP TABLE IF EXISTS `disciplina`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `aluno_turma` (
-  `aluno_turma_id` int(11) NOT NULL AUTO_INCREMENT,
-  `aluno_id` int(11) NOT NULL,
-  `turma_id` int(11) NOT NULL,
-  PRIMARY KEY (`aluno_turma_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+CREATE TABLE `disciplina` (
+  `disciplina_id` int(11) NOT NULL AUTO_INCREMENT,
+  `curso_id` int(11) NOT NULL,
+  `nome` varchar(255) NOT NULL,
+  `cargaHoraria` int(11) DEFAULT NULL,
+  `numCredito` int(11) NOT NULL,
+  `periodoCorrespondente` int(11) NOT NULL,
+  `areaDisciplina` varchar(255) NOT NULL,
+  PRIMARY KEY (`disciplina_id`),
+  KEY `curso_disciplina_fk` (`curso_id`),
+  CONSTRAINT `curso_disciplina_fk` FOREIGN KEY (`curso_id`) REFERENCES `curso` (`curso_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `aluno_turma`
+-- Dumping data for table `disciplina`
 --
 
-LOCK TABLES `aluno_turma` WRITE;
-/*!40000 ALTER TABLE `aluno_turma` DISABLE KEYS */;
-INSERT INTO `aluno_turma` VALUES (1,1,1);
-/*!40000 ALTER TABLE `aluno_turma` ENABLE KEYS */;
+LOCK TABLES `disciplina` WRITE;
+/*!40000 ALTER TABLE `disciplina` DISABLE KEYS */;
+INSERT INTO `disciplina` VALUES (2,1,'Lógica Matemática',60,20,1,'Lógica Matemática');
+/*!40000 ALTER TABLE `disciplina` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -49,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-09-06  2:47:31
+-- Dump completed on 2016-09-08 13:20:40
