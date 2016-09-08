@@ -16,35 +16,32 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `aluno`
+-- Table structure for table `frequencia`
 --
 
-DROP TABLE IF EXISTS `aluno`;
+DROP TABLE IF EXISTS `frequencia`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `aluno` (
-  `aluno_id` int(11) NOT NULL AUTO_INCREMENT,
-  `endereco` varchar(255) NOT NULL,
-  `telefone` varchar(255) NOT NULL,
-  `nome` varchar(255) NOT NULL,
-  `identidade` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `sexo` varchar(255) NOT NULL,
-  `datanascimento` varchar(255) NOT NULL,
-  `cpf` varchar(255) NOT NULL,
-  `curso_id` int(11) NOT NULL,
-  `turma_id` int(11) NOT NULL,
-  PRIMARY KEY (`aluno_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+CREATE TABLE `frequencia` (
+  `frequencia_id` int(11) NOT NULL AUTO_INCREMENT,
+  `numFaltas` int(11) NOT NULL,
+  `aluno_id` int(11) NOT NULL,
+  `aula_id` int(11) NOT NULL,
+  PRIMARY KEY (`frequencia_id`),
+  KEY `aula_frequencia_fk` (`aula_id`),
+  KEY `aluno_frequencia_fk` (`aluno_id`),
+  CONSTRAINT `aluno_frequencia_fk` FOREIGN KEY (`aluno_id`) REFERENCES `aluno` (`aluno_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `aula_frequencia_fk` FOREIGN KEY (`aula_id`) REFERENCES `aula` (`aula_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `aluno`
+-- Dumping data for table `frequencia`
 --
 
-LOCK TABLES `aluno` WRITE;
-/*!40000 ALTER TABLE `aluno` DISABLE KEYS */;
-/*!40000 ALTER TABLE `aluno` ENABLE KEYS */;
+LOCK TABLES `frequencia` WRITE;
+/*!40000 ALTER TABLE `frequencia` DISABLE KEYS */;
+/*!40000 ALTER TABLE `frequencia` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -56,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-09-05 19:08:57
+-- Dump completed on 2016-09-08 13:20:40

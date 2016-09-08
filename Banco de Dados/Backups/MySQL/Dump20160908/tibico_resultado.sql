@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: tibico
 -- ------------------------------------------------------
--- Server version	5.5.5-10.1.13-MariaDB
+-- Server version	5.7.13-0ubuntu0.16.04.2
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,27 +16,33 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `avaliacao`
+-- Table structure for table `resultado`
 --
 
-DROP TABLE IF EXISTS `avaliacao`;
+DROP TABLE IF EXISTS `resultado`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `avaliacao` (
-  `avaliacao_id` int(11) NOT NULL AUTO_INCREMENT,
-  `peso` decimal(10,0) NOT NULL,
-  `nome` varchar(255) NOT NULL,
-  PRIMARY KEY (`avaliacao_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+CREATE TABLE `resultado` (
+  `resultado_id` int(11) NOT NULL AUTO_INCREMENT,
+  `aluno_id` int(11) NOT NULL,
+  `avaliacao_id` int(11) NOT NULL,
+  `pontuacao` decimal(10,0) NOT NULL,
+  `observacao` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`resultado_id`),
+  KEY `avaliacao_resultado_fk` (`avaliacao_id`),
+  KEY `aluno_resultado_fk` (`aluno_id`),
+  CONSTRAINT `aluno_resultado_fk` FOREIGN KEY (`aluno_id`) REFERENCES `aluno` (`aluno_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `avaliacao_resultado_fk` FOREIGN KEY (`avaliacao_id`) REFERENCES `avaliacao` (`avaliacao_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `avaliacao`
+-- Dumping data for table `resultado`
 --
 
-LOCK TABLES `avaliacao` WRITE;
-/*!40000 ALTER TABLE `avaliacao` DISABLE KEYS */;
-/*!40000 ALTER TABLE `avaliacao` ENABLE KEYS */;
+LOCK TABLES `resultado` WRITE;
+/*!40000 ALTER TABLE `resultado` DISABLE KEYS */;
+/*!40000 ALTER TABLE `resultado` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -48,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-09-06  2:47:31
+-- Dump completed on 2016-09-08 13:20:40

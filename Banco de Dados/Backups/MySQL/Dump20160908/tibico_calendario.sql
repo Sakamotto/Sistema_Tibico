@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: tibico
 -- ------------------------------------------------------
--- Server version	5.5.5-10.1.13-MariaDB
+-- Server version	5.7.13-0ubuntu0.16.04.2
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,31 +16,36 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `turma`
+-- Table structure for table `calendario`
 --
 
-DROP TABLE IF EXISTS `turma`;
+DROP TABLE IF EXISTS `calendario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `turma` (
-  `turma_id` int(11) NOT NULL AUTO_INCREMENT,
-  `professor_id` int(11) NOT NULL,
-  `horario_id` int(11) NOT NULL,
-  `numvagas` int(11) NOT NULL,
+CREATE TABLE `calendario` (
+  `horario_id` int(11) NOT NULL AUTO_INCREMENT,
+  `curso_id` int(11) NOT NULL,
+  `duracao` int(11) NOT NULL,
+  `dataInicioCA` date DEFAULT NULL,
+  `dataFimCA` date DEFAULT NULL,
+  `dataInicioPM` date DEFAULT NULL,
+  `dataFimPM` date DEFAULT NULL,
   `situacao` varchar(255) DEFAULT NULL,
-  `disciplina_id` int(11) NOT NULL,
-  PRIMARY KEY (`turma_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  `dataInicioPL` date DEFAULT NULL,
+  `dataFimPL` date DEFAULT NULL,
+  PRIMARY KEY (`horario_id`),
+  KEY `curso_calendario_fk` (`curso_id`),
+  CONSTRAINT `curso_calendario_fk` FOREIGN KEY (`curso_id`) REFERENCES `curso` (`curso_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `turma`
+-- Dumping data for table `calendario`
 --
 
-LOCK TABLES `turma` WRITE;
-/*!40000 ALTER TABLE `turma` DISABLE KEYS */;
-INSERT INTO `turma` VALUES (1,5,1,20,'Em andamento',1);
-/*!40000 ALTER TABLE `turma` ENABLE KEYS */;
+LOCK TABLES `calendario` WRITE;
+/*!40000 ALTER TABLE `calendario` DISABLE KEYS */;
+/*!40000 ALTER TABLE `calendario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-09-06  2:47:31
+-- Dump completed on 2016-09-08 13:20:40

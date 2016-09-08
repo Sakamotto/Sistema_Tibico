@@ -16,34 +16,28 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `calendario`
+-- Table structure for table `aula`
 --
 
-DROP TABLE IF EXISTS `calendario`;
+DROP TABLE IF EXISTS `aula`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `calendario` (
-  `calendario_id` int(11) NOT NULL AUTO_INCREMENT,
-  `curso_id` int(11) NOT NULL,
-  `duracao` int(11) NOT NULL,
-  `datainicioca` date DEFAULT NULL,
-  `datafimca` date DEFAULT NULL,
-  `datainiciopm` date DEFAULT NULL,
-  `datafimpm` date DEFAULT NULL,
-  `situacao` varchar(255) DEFAULT NULL,
-  `datainiciopl` date DEFAULT NULL,
-  `datafimpl` date DEFAULT NULL,
-  PRIMARY KEY (`calendario_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+CREATE TABLE `aula` (
+  `aula_id` int(11) NOT NULL AUTO_INCREMENT,
+  `data` date NOT NULL,
+  `quantidadeAulas` int(11) NOT NULL,
+  `conteudo` varchar(255) NOT NULL,
+  PRIMARY KEY (`aula_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `calendario`
+-- Dumping data for table `aula`
 --
 
-LOCK TABLES `calendario` WRITE;
-/*!40000 ALTER TABLE `calendario` DISABLE KEYS */;
-/*!40000 ALTER TABLE `calendario` ENABLE KEYS */;
+LOCK TABLES `aula` WRITE;
+/*!40000 ALTER TABLE `aula` DISABLE KEYS */;
+/*!40000 ALTER TABLE `aula` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -55,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-09-05 19:08:57
+-- Dump completed on 2016-09-08 13:20:40

@@ -16,28 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `areaconhecimento`
+-- Table structure for table `AreaConhecimento`
 --
 
-DROP TABLE IF EXISTS `areaconhecimento`;
+DROP TABLE IF EXISTS `AreaConhecimento`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `areaconhecimento` (
-  `areaconhecimento_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `AreaConhecimento` (
+  `areaConhecimento_id` int(11) NOT NULL AUTO_INCREMENT,
   `descricao` varchar(255) DEFAULT NULL,
-  `subareaconhecimento_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`areaconhecimento_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+  `subAreaConhecimento_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`areaConhecimento_id`),
+  KEY `areaconhecimento_areaconhecimento_fk` (`subAreaConhecimento_id`),
+  CONSTRAINT `areaconhecimento_areaconhecimento_fk` FOREIGN KEY (`subAreaConhecimento_id`) REFERENCES `AreaConhecimento` (`areaConhecimento_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `areaconhecimento`
+-- Dumping data for table `AreaConhecimento`
 --
 
-LOCK TABLES `areaconhecimento` WRITE;
-/*!40000 ALTER TABLE `areaconhecimento` DISABLE KEYS */;
-INSERT INTO `areaconhecimento` VALUES (1,'Ciências Exatas e da Terra',NULL),(2,'Matemática',1),(3,'Álgebra',2),(4,'Conjuntos',3),(5,'Lógica Matemática',3),(6,'Teoria dos Números',3);
-/*!40000 ALTER TABLE `areaconhecimento` ENABLE KEYS */;
+LOCK TABLES `AreaConhecimento` WRITE;
+/*!40000 ALTER TABLE `AreaConhecimento` DISABLE KEYS */;
+INSERT INTO `AreaConhecimento` VALUES (1,'Ciências Exatas e da Terra',NULL),(2,'Matemática',1),(3,'Álgebra',2),(4,'Conjuntos',3),(5,'Lógica Matemática',3),(6,'Teoria dos Números',3);
+/*!40000 ALTER TABLE `AreaConhecimento` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -49,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-09-05 19:08:57
+-- Dump completed on 2016-09-08 13:20:40

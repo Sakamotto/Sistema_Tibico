@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: tibico
 -- ------------------------------------------------------
--- Server version	5.5.5-10.1.13-MariaDB
+-- Server version	5.7.13-0ubuntu0.16.04.2
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,33 +16,36 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `curso`
+-- Table structure for table `aluno`
 --
 
-DROP TABLE IF EXISTS `curso`;
+DROP TABLE IF EXISTS `aluno`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `curso` (
-  `curso_id` int(11) NOT NULL AUTO_INCREMENT,
-  `nome_curso` varchar(255) NOT NULL,
-  `sigla` varchar(255) NOT NULL,
-  `regime` varchar(255) NOT NULL,
-  `descricao` varchar(255) NOT NULL,
-  `duracao` int(11) NOT NULL,
-  `grauinstrucao_id` int(11) NOT NULL,
-  `areaconhecimento_id` int(11) NOT NULL,
-  PRIMARY KEY (`curso_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+CREATE TABLE `aluno` (
+  `aluno_id` int(11) NOT NULL AUTO_INCREMENT,
+  `endereco` varchar(255) NOT NULL,
+  `telefone` varchar(255) NOT NULL,
+  `nome` varchar(255) NOT NULL,
+  `identidade` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `sexo` varchar(255) NOT NULL,
+  `dataNascimento` varchar(255) NOT NULL,
+  `cpf` varchar(255) NOT NULL,
+  `curso_id` int(11) NOT NULL,
+  PRIMARY KEY (`aluno_id`),
+  KEY `curso_aluno_fk` (`curso_id`),
+  CONSTRAINT `curso_aluno_fk` FOREIGN KEY (`curso_id`) REFERENCES `curso` (`curso_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `curso`
+-- Dumping data for table `aluno`
 --
 
-LOCK TABLES `curso` WRITE;
-/*!40000 ALTER TABLE `curso` DISABLE KEYS */;
-INSERT INTO `curso` VALUES (1,'Bacharelado em Sistemas de Informação','BSI','Créditos','Curso da área de tecnologia da informação',3000,2,1);
-/*!40000 ALTER TABLE `curso` ENABLE KEYS */;
+LOCK TABLES `aluno` WRITE;
+/*!40000 ALTER TABLE `aluno` DISABLE KEYS */;
+/*!40000 ALTER TABLE `aluno` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -54,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-09-06  2:47:31
+-- Dump completed on 2016-09-08 13:20:40
