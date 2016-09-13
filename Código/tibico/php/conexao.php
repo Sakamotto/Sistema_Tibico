@@ -1,7 +1,7 @@
 <?php
 	header("Content-type: text/html; charset=utf-8");
 
-	$conecta = mysql_connect("localhost", "root", "");
+	$conecta = mysql_connect("localhost", "root", "root");
 	mysql_select_db("tibico", $conecta);
 	mysql_set_charset("utf8");
 	
