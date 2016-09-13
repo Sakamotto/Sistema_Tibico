@@ -30,20 +30,9 @@
 
 	<body class="background">
 
-	<div class="container" style="margin-top: 30px">
-		<form action="php/aluno_turma.php" method="post">
+	<div class="container" style="margin-top: 30px; width: 400px">
+		<form action="php/aula_frequencia.php" method="post">
 			<div class="form-group">
-				<label for="aluno">Aluno</label>
-				<select name="aluno" class="form-control">
-					<?php
-						$result = mysql_query("SELECT * FROM aluno");
-						
-						while($consulta = mysql_fetch_array($result)){		
-							echo "<option value='". $consulta['aluno_id']. "'>".$consulta['nome']."</option>";
-						}
-					?>
-				</select>
-				<br>
 				<label for="turma">Turma</label>
 				<select name="turma" class="form-control">
 					<?php
@@ -54,6 +43,42 @@
 						}
 					?>
 				</select>
+
+				<br><br>
+
+				<label for="data">Data:</label>
+				<input type="date" name="data" id="data" max="3000-12-31"><br><br>
+
+				<label for="aula">Quantidade de Aulas:</label>
+				<select name="quantidadeAulas" class="form-control">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+				</select>
+
+				<br><br>
+
+				<label for="conteudo">Conteúdo:</label>
+				<input type="text" name="conteudoaula">
+
+				<br><br>
+
+				<label for="alunos">Alunos e número de presenças:</label><br>
+				<?php
+					$result = mysql_query("SELECT * FROM aluno");
+					
+					while($consulta = mysql_fetch_array($result)){
+						echo "<label for='alunos'>".$consulta['nome']."</label>";		
+						echo "<input type='text' name='aluno_".$consulta['aluno_id']."'/>.<br>";
+					}
+				?>
+				<br>
+				
 			</div>
 			<input type="submit" class="btn btn-success" value="Salvar">
 		</form>
