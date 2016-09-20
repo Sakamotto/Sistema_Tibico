@@ -1,7 +1,17 @@
 <!DOCTYPE html>
 
-<?php
-	include("conexao.php");
+<?php 
+	header("Content-type: text/html; charset=utf-8");
+
+	$conecta = mysql_connect("localhost", "root", "root");
+	mysql_select_db("tibico", $conecta);
+	mysql_set_charset("utf8");
+	
+	if($conecta == true){
+		//print("Conexão Okay!". "<br>");
+	}else{
+		print("Erro ao conectar ". mysql_error());
+	}
 ?>
 
 <html>

@@ -6,7 +6,7 @@
 
 	// echo "$aluno_id, $turma_id";
 
-	// echo "INSERT INTO aluno_turma (aluno_id, turma_id) VALUES($aluno_id, $turma_id)";
+	echo "INSERT INTO aluno_turma (aluno_id, turma_id) VALUES($aluno_id, $turma_id)";
 	$result = mysql_query("INSERT INTO aluno_turma (aluno_id, turma_id) VALUES($aluno_id, $turma_id)") or die(mysql_error());
 	header("location:../pagematricula.php");
 

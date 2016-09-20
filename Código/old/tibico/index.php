@@ -12,7 +12,13 @@
 </head>
 <body class="background">
 
-	<?php include("php/menu.php") ?>
+	<div>
+		<ul>
+			<li><a href="pagematricula.php">Matrícula</a></li>
+			<!-- <li><a class="active" href="php/conexao.php">Matrícula</a></li> -->
+			<li><a href="pagechamada.php">Turmas</a></li>
+		</ul>
+	</div>
 	
 	<div>
 		<img src="img/logo2.png" alt="Logo" id="imagem">
