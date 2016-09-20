@@ -20,28 +20,32 @@
 
 	<body class="background">
 
-	<div class="container" style="margin-top: 30px; width: 400px">
+	<div class="container" style="margin-top: 30px; width: 500px">
 
-		<form action="php/aula_frequencia.php" method="post">
+		<h1 style="text-align:center">Chamada</h1>
+
+		<br><br>
+
+		<form action="aula_frequencia.php" method="post">
 			<div class="form-group">
-				<label for="turma">Turma</label>
-				<select name="turma" class="form-control">
+				<label for="turma" style="width:50%;float:left">Turma:</label></div>
+				<select name="turma" class="form-control" style="width:50%;float:right">
 					<?php
 						$result = mysql_query("SELECT * FROM disciplina INNER JOIN turma ON(disciplina.disciplina_id = turma.disciplina_id)");
 						
 						while($consulta = mysql_fetch_array($result)){				
-							echo "<option value='". $consulta['turma_id']. "'>".$consulta['nome']."</option>";
+							echo "<option value='". $consulta['turma_id']. "'>".$consulta['nome']."</option></div>";
 						}
 					?>
 				</select>
 
 				<br><br>
 
-				<label for="data">Data:</label>
-				<input type="date" name="data" id="data" max="3000-12-31"><br><br>
+				<label for="data" style="width:50%;float:left">Data:</label>
+				<input type="date" name="data" id="data" max="3000-12-31" style="width:50%;float:right"><br><br>
 
-				<label for="aula">Quantidade de Aulas:</label>
-				<select name="quantidadeAulas" class="form-control">
+				<label for="aula" style="width:50%;float:left">Quantidade de Aulas:</label>
+				<select name="quantidadeAulas" class="form-control" style="width:50%;float:right">
 					<option value="1">1</option>
 					<option value="2">2</option>
 					<option value="3">3</option>
@@ -54,8 +58,8 @@
 
 				<br><br>
 
-				<label for="conteudo">Conteúdo:</label>
-				<input type="text" name="conteudoaula">
+				<label for="conteudo" style="width:50%;float:left">Conteúdo:</label>
+				<input type="text" name="conteudoaula" style="width:50%;float:right">
 
 				<br><br>
 
@@ -64,14 +68,14 @@
 					$result = mysql_query("SELECT * FROM aluno");
 					
 					while($consulta = mysql_fetch_array($result)){
-						echo "<label for='alunos'>".$consulta['nome']."</label>";		
-						echo "<input type='text' name='aluno_".$consulta['aluno_id']."'/>.<br>";
+						echo "<label for='alunos' style='width:50%;float:left'>".$consulta['nome']."</label>".
+						"<input type='text' name='aluno_".$consulta['aluno_id']." style='width:50%;float:right''/><br>";
 					}
 				?>
 				<br>
-				
+				<input type="submit" class="btn btn-success" value="Salvar" style="float:right">	
 			</div>
-			<input type="submit" class="btn btn-success" value="Salvar">
+			
 		</form>
 	</div>
 	</body>

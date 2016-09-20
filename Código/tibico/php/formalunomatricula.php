@@ -21,10 +21,14 @@
 	<body class="background">
 
 	<div class="container" style="margin-top: 30px">
+		<h1 style="width:50%;text-align:center">Matrícula de aluno</h1>
+
+		<br><br>
+
 		<form action="php/aluno_turma.php" method="post">
-			<div class="form-group">
-				<label for="aluno">Aluno</label>
-				<select name="aluno" class="form-control">
+			<div class="form-group" style="width:50%">
+				<label for="aluno" style='width:50%;float:left'>Aluno</label>
+				<select name="aluno" class="form-control" style='width:50%;float:right'>
 					<?php
 						$result = mysql_query("SELECT * FROM aluno");
 						
@@ -34,8 +38,10 @@
 					?>
 				</select>
 				<br>
-				<label for="turma">Turma</label>
-				<select name="turma" class="form-control">
+				<br>
+				<br>
+				<label for="turma" style='width:50%;float:left'>Turma</label>
+				<select name="turma" class="form-control" style='width:50%;float:right'>
 					<?php
 						$result = mysql_query("SELECT * FROM disciplina INNER JOIN turma ON(disciplina.disciplina_id = turma.disciplina_id)");
 						
@@ -44,8 +50,15 @@
 						}
 					?>
 				</select>
+
+				<br>
+				<br>
+				<br>
+
+				<input type="submit" class="btn btn-success" value="Salvar" style="float:right">
+
 			</div>
-			<input type="submit" class="btn btn-success" value="Salvar">
+			
 		</form>
 	</div>
 	</body>
