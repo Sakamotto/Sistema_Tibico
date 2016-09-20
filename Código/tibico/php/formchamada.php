@@ -20,63 +20,63 @@
 
 	<body class="background">
 
-	<div class="container" style="margin-top: 30px; width: 500px">
+		<div class="container" style="margin-top: 30px; width: 500px">
 
-		<h1 style="text-align:center">Chamada</h1>
+			<h1 style="text-align:center">Chamada</h1>
 
-		<br><br>
+			<br><br>
 
-		<form action="aula_frequencia.php" method="post">
-			<div class="form-group">
-				<label for="turma" style="width:50%;float:left">Turma:</label></div>
-				<select name="turma" class="form-control" style="width:50%;float:right">
+			<form action="aula_frequencia.php" method="post">
+				<div class="form-group">
+					<label for="turma" style="width:50%;float:left">Turma:</label></div>
+					<select name="turma" class="form-control" style="width:50%;float:right">
+						<?php
+							$result = mysql_query("SELECT * FROM disciplina INNER JOIN turma ON(disciplina.disciplina_id = turma.disciplina_id)");
+							
+							while($consulta = mysql_fetch_array($result)){				
+								echo "<option value='". $consulta['turma_id']. "'>".$consulta['nome']."</option></div>";
+							}
+						?>
+					</select>
+
+					<br><br>
+
+					<label for="data" style="width:50%;float:left">Data:</label>
+					<input type="date" name="data" id="data" max="3000-12-31" style="width:50%;float:right"><br><br>
+
+					<label for="aula" style="width:50%;float:left">Quantidade de Aulas:</label>
+					<select name="quantidadeAulas" class="form-control" style="width:50%;float:right">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+					</select>
+
+					<br><br>
+
+					<label for="conteudo" style="width:50%;float:left">Conteúdo:</label>
+					<input type="text" name="conteudoaula" style="width:50%;float:right">
+
+					<br><br>
+
+					<label for="alunos">Alunos e número de presenças:</label><br>
 					<?php
-						$result = mysql_query("SELECT * FROM disciplina INNER JOIN turma ON(disciplina.disciplina_id = turma.disciplina_id)");
+						$result = mysql_query("SELECT * FROM aluno");
 						
-						while($consulta = mysql_fetch_array($result)){				
-							echo "<option value='". $consulta['turma_id']. "'>".$consulta['nome']."</option></div>";
+						while($consulta = mysql_fetch_array($result)){
+							echo "<label for='alunos' style='width:50%;float:left'>".$consulta['nome']."</label>".
+							"<input type='text' name='aluno_".$consulta['aluno_id']." style='width:50%;float:right''/><br>";
 						}
 					?>
-				</select>
-
-				<br><br>
-
-				<label for="data" style="width:50%;float:left">Data:</label>
-				<input type="date" name="data" id="data" max="3000-12-31" style="width:50%;float:right"><br><br>
-
-				<label for="aula" style="width:50%;float:left">Quantidade de Aulas:</label>
-				<select name="quantidadeAulas" class="form-control" style="width:50%;float:right">
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-					<option value="6">6</option>
-					<option value="7">7</option>
-					<option value="8">8</option>
-				</select>
-
-				<br><br>
-
-				<label for="conteudo" style="width:50%;float:left">Conteúdo:</label>
-				<input type="text" name="conteudoaula" style="width:50%;float:right">
-
-				<br><br>
-
-				<label for="alunos">Alunos e número de presenças:</label><br>
-				<?php
-					$result = mysql_query("SELECT * FROM aluno");
-					
-					while($consulta = mysql_fetch_array($result)){
-						echo "<label for='alunos' style='width:50%;float:left'>".$consulta['nome']."</label>".
-						"<input type='text' name='aluno_".$consulta['aluno_id']." style='width:50%;float:right''/><br>";
-					}
-				?>
-				<br>
-				<input type="submit" class="btn btn-success" value="Salvar" style="float:right">	
-			</div>
-			
-		</form>
-	</div>
+					<br>
+					<input type="submit" class="btn btn-success" value="Salvar" style="float:right">	
+				</div>
+				
+			</form>
+		</div>
 	</body>
 </html>

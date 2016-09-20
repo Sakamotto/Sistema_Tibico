@@ -34,7 +34,7 @@
 
 			<br>
 
-			<a href="cadastro_avaliacao.php" class="btn btn-success" role="button" style="width: 100%;margin-bottom:5px;height: 40px"> Cadastrar Avaliação</a>
+			<a href="formavaliacao.php" class="btn btn-success" role="button" style="width: 100%;margin-bottom:5px;height: 40px"> Cadastrar Avaliação</a>
 		</div>
 	</body>
 </html>
