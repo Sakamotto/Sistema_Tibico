@@ -22,25 +22,36 @@
 
 		<div class="container" style="margin-top: 30px; width: 500px">
 
-			<h1 style="text-align:center">Chamada</h1>
+			<h3 style="text-align:center">
+				<?php
+
+
+
+					$turma_id = $_POST['turma'];
+
+					// Criação de cookie com o id da turma.
+
+					setcookie("turma_id", $turma_id);
+
+					$consulta_disciplina = mysql_query("
+						SELECT disciplina.nome
+						FROM turma 
+						INNER JOIN disciplina 
+						ON turma.disciplina_id = disciplina.disciplina_id 
+						WHERE turma.turma_id = '$turma_id'"
+					);
+
+					$nome_disciplina = mysql_fetch_assoc($consulta_disciplina)['nome'];
+
+					echo "Chamada de ".$nome_disciplina;
+				?>
+			</h3>
 
 			<br><br>
 
 			<form action="aula_frequencia.php" method="post">
 				<div class="form-group">
-					<label for="turma" style="width:50%;float:left">Turma:</label></div>
-					<select name="turma" class="form-control" style="width:50%;float:right">
-						<?php
-							$result = mysql_query("SELECT * FROM disciplina INNER JOIN turma ON(disciplina.disciplina_id = turma.disciplina_id)");
-							
-							while($consulta = mysql_fetch_array($result)){				
-								echo "<option value='". $consulta['turma_id']. "'>".$consulta['nome']."</option></div>";
-							}
-						?>
-					</select>
-
-					<br><br>
-
+					<label name="turma" id="turma"></label>
 					<label for="data" style="width:50%;float:left">Data:</label>
 					<input type="date" name="data" id="data" max="3000-12-31" style="width:50%;float:right"><br><br>
 
@@ -65,12 +76,18 @@
 
 					<label for="alunos">Alunos e número de presenças:</label><br>
 					<?php
-						$result = mysql_query("SELECT * FROM aluno");
+						$turma_id = $_POST['turma'];
+						$result = mysql_query("SELECT * FROM aluno INNER JOIN aluno_turma ON aluno.aluno_id = aluno_turma.aluno_id WHERE aluno_turma.turma_id = '$turma_id'");
+
+						
+						
 						
 						while($consulta = mysql_fetch_array($result)){
 							echo "<label for='alunos' style='width:50%;float:left'>".$consulta['nome']."</label>".
 							"<input type='text' name='aluno_".$consulta['aluno_id']." style='width:50%;float:right''/><br>";
 						}
+
+						
 					?>
 					<br>
 					<input type="submit" class="btn btn-success" value="Salvar" style="float:right">	

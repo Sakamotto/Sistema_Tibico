@@ -2,7 +2,7 @@
 	include 'conexao.php';
 
 
-	$turma_id = $_POST['turma'];
+	$turma_id = $_COOKIE['turma_id'];
 	$data = $_POST['data'];
 	$quantidade_aulas = $_POST['quantidadeAulas'];
 	$conteudoaula = $_POST['conteudoaula'];

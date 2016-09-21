@@ -30,7 +30,7 @@
 			
 			<br>
 			
-			<a href="formchamada.php" class="btn btn-warning" role="button" style="width: 100%;margin-bottom:5px;height: 40px">Realizar Chamada</a>
+			<a href="formchamada_escolherturma.php" class="btn btn-warning" role="button" style="width: 100%;margin-bottom:5px;height: 40px">Realizar Chamada</a>
 
 			<br>
 
