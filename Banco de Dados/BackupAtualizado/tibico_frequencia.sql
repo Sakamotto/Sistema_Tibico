@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 5.6.31, for debian-linux-gnu (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.12, for linux-glibc2.5 (x86_64)
 --
 -- Host: localhost    Database: tibico
 -- ------------------------------------------------------
@@ -32,7 +32,7 @@ CREATE TABLE `frequencia` (
   KEY `aluno_frequencia_fk` (`aluno_id`),
   CONSTRAINT `aluno_frequencia_fk` FOREIGN KEY (`aluno_id`) REFERENCES `aluno` (`aluno_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `aula_frequencia_fk` FOREIGN KEY (`aula_id`) REFERENCES `aula` (`aula_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,6 +41,7 @@ CREATE TABLE `frequencia` (
 
 LOCK TABLES `frequencia` WRITE;
 /*!40000 ALTER TABLE `frequencia` DISABLE KEYS */;
+INSERT INTO `frequencia` VALUES (1,0,1,1),(2,0,2,1),(3,0,1,2),(4,0,2,2),(5,0,1,3),(6,0,2,3),(7,0,1,4),(8,0,2,4);
 /*!40000 ALTER TABLE `frequencia` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-09-08 20:06:38
+-- Dump completed on 2016-09-20 20:18:12

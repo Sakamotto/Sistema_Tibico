@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 5.6.31, for debian-linux-gnu (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.12, for linux-glibc2.5 (x86_64)
 --
 -- Host: localhost    Database: tibico
 -- ------------------------------------------------------
@@ -16,32 +16,27 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `aluno_turma`
+-- Table structure for table `grauinstrucao`
 --
 
-DROP TABLE IF EXISTS `aluno_turma`;
+DROP TABLE IF EXISTS `grauinstrucao`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `aluno_turma` (
-  `aluno_turma_id` int(11) NOT NULL AUTO_INCREMENT,
-  `aluno_id` int(11) NOT NULL,
-  `turma_id` int(11) NOT NULL,
-  PRIMARY KEY (`aluno_turma_id`),
-  KEY `aluno_aluno_turma_fk` (`aluno_id`),
-  KEY `turma_aluno_turma_fk` (`turma_id`),
-  CONSTRAINT `aluno_aluno_turma_fk` FOREIGN KEY (`aluno_id`) REFERENCES `aluno` (`aluno_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `turma_aluno_turma_fk` FOREIGN KEY (`turma_id`) REFERENCES `turma` (`turma_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+CREATE TABLE `grauinstrucao` (
+  `grauinstrucao_id` int(11) NOT NULL AUTO_INCREMENT,
+  `descricao` varchar(255) NOT NULL,
+  PRIMARY KEY (`grauinstrucao_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `aluno_turma`
+-- Dumping data for table `grauinstrucao`
 --
 
-LOCK TABLES `aluno_turma` WRITE;
-/*!40000 ALTER TABLE `aluno_turma` DISABLE KEYS */;
-INSERT INTO `aluno_turma` VALUES (7,1,1),(8,1,2),(9,2,2),(10,2,1);
-/*!40000 ALTER TABLE `aluno_turma` ENABLE KEYS */;
+LOCK TABLES `grauinstrucao` WRITE;
+/*!40000 ALTER TABLE `grauinstrucao` DISABLE KEYS */;
+INSERT INTO `grauinstrucao` VALUES (1,'Técnico'),(2,'Superior'),(3,'Pós-Graduação'),(4,'Mestrado'),(5,'Doutorado');
+/*!40000 ALTER TABLE `grauinstrucao` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-09-08 20:06:37
+-- Dump completed on 2016-09-20 20:18:11

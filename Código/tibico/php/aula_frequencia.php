@@ -2,7 +2,7 @@
 	include 'conexao.php';
 
 
-	$turma_id = $_POST['turma'];
+	$turma_id = $_COOKIE['turma_id'];
 	$data = $_POST['data'];
 	$quantidade_aulas = $_POST['quantidadeAulas'];
 	$conteudoaula = $_POST['conteudoaula'];
@@ -11,8 +11,7 @@
 
 	// echo "$aluno_id, $turma_id";
 
-	echo "INSERT INTO aula (data, quantidadeaulas, conteudo) VALUES($data, $quantidade_aulas, $conteudoaula)";
-
+	
 	$result = mysql_query("INSERT INTO aula (data, quantidadeaulas, conteudo) VALUES('$data', '$quantidade_aulas', '$conteudoaula')") or die(mysql_error());
 
 	// echo "SELECT * FROM tibico.aula";
@@ -34,6 +33,6 @@
 
 	//header("location:../pagematricula.php");
 
-	echo "<div class='alert alert-success'>	<strong>Successo!</strong> Aluno cadastrado na turma com sucesso.</div>";
+	echo "<div class='alert alert-success'>	<strong>Successo!</strong> Chamada realizada com sucesso.</div>";
 
 ?>

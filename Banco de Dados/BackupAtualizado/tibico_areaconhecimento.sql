@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 5.6.31, for debian-linux-gnu (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.12, for linux-glibc2.5 (x86_64)
 --
 -- Host: localhost    Database: tibico
 -- ------------------------------------------------------
@@ -16,33 +16,28 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `resultado`
+-- Table structure for table `areaconhecimento`
 --
 
-DROP TABLE IF EXISTS `resultado`;
+DROP TABLE IF EXISTS `areaconhecimento`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `resultado` (
-  `resultado_id` int(11) NOT NULL AUTO_INCREMENT,
-  `aluno_id` int(11) NOT NULL,
-  `avaliacao_id` int(11) NOT NULL,
-  `pontuacao` decimal(10,0) NOT NULL,
-  `observacao` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`resultado_id`),
-  KEY `avaliacao_resultado_fk` (`avaliacao_id`),
-  KEY `aluno_resultado_fk` (`aluno_id`),
-  CONSTRAINT `aluno_resultado_fk` FOREIGN KEY (`aluno_id`) REFERENCES `aluno` (`aluno_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `avaliacao_resultado_fk` FOREIGN KEY (`avaliacao_id`) REFERENCES `avaliacao` (`avaliacao_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE `areaconhecimento` (
+  `areaconhecimento_id` int(11) NOT NULL AUTO_INCREMENT,
+  `descricao` varchar(255) DEFAULT NULL,
+  `subareaconhecimento_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`areaconhecimento_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `resultado`
+-- Dumping data for table `areaconhecimento`
 --
 
-LOCK TABLES `resultado` WRITE;
-/*!40000 ALTER TABLE `resultado` DISABLE KEYS */;
-/*!40000 ALTER TABLE `resultado` ENABLE KEYS */;
+LOCK TABLES `areaconhecimento` WRITE;
+/*!40000 ALTER TABLE `areaconhecimento` DISABLE KEYS */;
+INSERT INTO `areaconhecimento` VALUES (1,'Ciências Exatas e da Terra',NULL),(2,'Matemática',1),(3,'Álgebra',2),(4,'Conjuntos',3),(5,'Lógica Matemática',3),(6,'Teoria dos Números',3);
+/*!40000 ALTER TABLE `areaconhecimento` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -54,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-09-08 20:06:38
+-- Dump completed on 2016-09-20 20:18:11

@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 5.6.31, for debian-linux-gnu (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.12, for linux-glibc2.5 (x86_64)
 --
 -- Host: localhost    Database: tibico
 -- ------------------------------------------------------
@@ -16,30 +16,37 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `AreaConhecimento`
+-- Table structure for table `curso`
 --
 
-DROP TABLE IF EXISTS `AreaConhecimento`;
+DROP TABLE IF EXISTS `curso`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `AreaConhecimento` (
-  `areaConhecimento_id` int(11) NOT NULL AUTO_INCREMENT,
-  `descricao` varchar(255) DEFAULT NULL,
-  `subAreaConhecimento_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`areaConhecimento_id`),
-  KEY `areaconhecimento_areaconhecimento_fk` (`subAreaConhecimento_id`),
-  CONSTRAINT `areaconhecimento_areaconhecimento_fk` FOREIGN KEY (`subAreaConhecimento_id`) REFERENCES `AreaConhecimento` (`areaConhecimento_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+CREATE TABLE `curso` (
+  `curso_id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome_curso` varchar(255) NOT NULL,
+  `sigla` varchar(255) NOT NULL,
+  `regime` varchar(255) NOT NULL,
+  `descricao` varchar(255) NOT NULL,
+  `duracao` int(11) NOT NULL,
+  `grauInstrucao_id` int(11) NOT NULL,
+  `areaConhecimento_id` int(11) NOT NULL,
+  PRIMARY KEY (`curso_id`),
+  KEY `grauinstrucao_curso_fk` (`grauInstrucao_id`),
+  KEY `areaconhecimento_curso_fk` (`areaConhecimento_id`),
+  CONSTRAINT `areaconhecimento_curso_fk` FOREIGN KEY (`areaConhecimento_id`) REFERENCES `AreaConhecimento` (`areaConhecimento_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `grauinstrucao_curso_fk` FOREIGN KEY (`grauInstrucao_id`) REFERENCES `grauInstrucao` (`grauInstrucao_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `AreaConhecimento`
+-- Dumping data for table `curso`
 --
 
-LOCK TABLES `AreaConhecimento` WRITE;
-/*!40000 ALTER TABLE `AreaConhecimento` DISABLE KEYS */;
-INSERT INTO `AreaConhecimento` VALUES (1,'Ciências Exatas e da Terra',NULL),(2,'Matemática',1),(3,'Álgebra',2),(4,'Conjuntos',3),(5,'Lógica Matemática',3),(6,'Teoria dos Números',3);
-/*!40000 ALTER TABLE `AreaConhecimento` ENABLE KEYS */;
+LOCK TABLES `curso` WRITE;
+/*!40000 ALTER TABLE `curso` DISABLE KEYS */;
+INSERT INTO `curso` VALUES (1,'Bacharelado em Sistemas de Informação','BSI','Créditos','Curso da área de tecnologia da informação',3000,2,1);
+/*!40000 ALTER TABLE `curso` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -51,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-09-08 20:06:38
+-- Dump completed on 2016-09-20 20:18:12

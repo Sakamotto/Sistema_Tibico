@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 5.6.31, for debian-linux-gnu (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.12, for linux-glibc2.5 (x86_64)
 --
 -- Host: localhost    Database: tibico
 -- ------------------------------------------------------
@@ -26,8 +26,11 @@ CREATE TABLE `avaliacao` (
   `avaliacao_id` int(11) NOT NULL AUTO_INCREMENT,
   `peso` decimal(10,0) NOT NULL,
   `nome` varchar(255) NOT NULL,
-  PRIMARY KEY (`avaliacao_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `turma_id` int(11) NOT NULL,
+  PRIMARY KEY (`avaliacao_id`),
+  KEY `turma_id` (`turma_id`),
+  CONSTRAINT `avaliacao_ibfk_1` FOREIGN KEY (`turma_id`) REFERENCES `turma` (`turma_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,6 +39,7 @@ CREATE TABLE `avaliacao` (
 
 LOCK TABLES `avaliacao` WRITE;
 /*!40000 ALTER TABLE `avaliacao` DISABLE KEYS */;
+INSERT INTO `avaliacao` VALUES (1,45,'Teste',1),(2,5,'Prova de rancar o couro',3);
 /*!40000 ALTER TABLE `avaliacao` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -48,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-09-08 20:06:38
+-- Dump completed on 2016-09-20 20:18:12

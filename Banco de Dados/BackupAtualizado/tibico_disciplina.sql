@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 5.6.31, for debian-linux-gnu (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.12, for linux-glibc2.5 (x86_64)
 --
 -- Host: localhost    Database: tibico
 -- ------------------------------------------------------
@@ -16,30 +16,34 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `horario`
+-- Table structure for table `disciplina`
 --
 
-DROP TABLE IF EXISTS `horario`;
+DROP TABLE IF EXISTS `disciplina`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `horario` (
-  `horario_id` int(11) NOT NULL AUTO_INCREMENT,
-  `turma_id` int(11) NOT NULL,
-  `horarioInicio` datetime DEFAULT NULL,
-  `horarioFim` datetime DEFAULT NULL,
-  PRIMARY KEY (`horario_id`),
-  KEY `turma_horario_fk` (`turma_id`),
-  CONSTRAINT `turma_horario_fk` FOREIGN KEY (`turma_id`) REFERENCES `turma` (`turma_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+CREATE TABLE `disciplina` (
+  `disciplina_id` int(11) NOT NULL AUTO_INCREMENT,
+  `curso_id` int(11) NOT NULL,
+  `nome` varchar(255) NOT NULL,
+  `cargaHoraria` int(11) DEFAULT NULL,
+  `numCredito` int(11) NOT NULL,
+  `periodoCorrespondente` int(11) NOT NULL,
+  `areaDisciplina` varchar(255) NOT NULL,
+  PRIMARY KEY (`disciplina_id`),
+  KEY `curso_disciplina_fk` (`curso_id`),
+  CONSTRAINT `curso_disciplina_fk` FOREIGN KEY (`curso_id`) REFERENCES `curso` (`curso_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `horario`
+-- Dumping data for table `disciplina`
 --
 
-LOCK TABLES `horario` WRITE;
-/*!40000 ALTER TABLE `horario` DISABLE KEYS */;
-/*!40000 ALTER TABLE `horario` ENABLE KEYS */;
+LOCK TABLES `disciplina` WRITE;
+/*!40000 ALTER TABLE `disciplina` DISABLE KEYS */;
+INSERT INTO `disciplina` VALUES (2,1,'Lógica Matemática',60,20,1,'Lógica Matemática'),(3,1,'Programação Web',60,30,6,'Programação'),(6,1,'Projeto de Sistemas',60,30,5,'Gestão');
+/*!40000 ALTER TABLE `disciplina` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -51,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-09-08 20:06:38
+-- Dump completed on 2016-09-20 20:18:11
