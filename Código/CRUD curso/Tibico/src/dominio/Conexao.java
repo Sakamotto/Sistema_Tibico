@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  */
 public class Conexao {
     
-    private static final String url = "jdbc:mysql://localhost:3306/tibico";
+    private static final String url = "jdbc:mysql://localhost:3307/tibico";
     private static final String user = "root";
     private static final String pass = "";
     

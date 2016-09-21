@@ -43,7 +43,7 @@ public class CrudCurso extends javax.swing.JFrame {
         modelo.addColumn("Área de Conhecimento");        
         con = Conexao.getConnection();
         try {
-            ps = con.prepareStatement("SELECT *  FROM curso INNER JOIN areaconhecimento ac ON (curso.areaConhecimento_id = ac.areaConhecimento_id)\n" +
+            ps = con.prepareStatement("SELECT *  FROM curso INNER JOIN areaconhecimento ac ON (curso.areaconhecimento_id = ac.areaconhecimento_id)\n" +
                                         "INNER JOIN grauinstrucao gi ON (curso.grauInstrucao_id = gi.grauInstrucao_id) "
                                         + "ORDER BY nome_curso");
             result = ps.executeQuery();
@@ -288,7 +288,7 @@ public class CrudCurso extends javax.swing.JFrame {
         try {
             con = Conexao.getConnection();
             
-            ps = con.prepareStatement("SELECT areaConhecimento_id FROM areaconhecimento WHERE descricao like ?");
+            ps = con.prepareStatement("SELECT areaconhecimento_id FROM areaconhecimento WHERE descricao like ?");
             ps.setString(1, cbAreaC.getSelectedItem().toString());
             result = ps.executeQuery();
             int id = 3;
@@ -296,7 +296,7 @@ public class CrudCurso extends javax.swing.JFrame {
                 id = result.getInt(1);
             }
             
-            ps = con.prepareStatement("INSERT INTO curso(nome_curso, sigla, regime, descricao, duracao, grauInstrucao_id, areaConhecimento_id )"
+            ps = con.prepareStatement("INSERT INTO curso(nome_curso, sigla, regime, descricao, duracao, grauInstrucao_id, areaconhecimento_id )"
                     + " VALUES(?,?,?,?,?,?,?)");
             ps.setString(1, tfCurso.getText());
             ps.setString(2, tfSigla.getText());
@@ -329,7 +329,7 @@ public class CrudCurso extends javax.swing.JFrame {
         int id = Integer.parseInt(tabelaInf.getModel().getValueAt(index, 0).toString());
         con = Conexao.getConnection();
         try {
-            ps = con.prepareStatement("SELECT * FROM curso INNER JOIN areaConhecimento ac "
+            ps = con.prepareStatement("SELECT * FROM curso INNER JOIN areaconhecimento ac "
                     + "ON (curso.areaconhecimento_id = ac.areaconhecimento_id)WHERE curso_id = ?");
             ps.setInt(1, id);
             result = ps.executeQuery();
@@ -355,14 +355,14 @@ public class CrudCurso extends javax.swing.JFrame {
         con = Conexao.getConnection();
         int index = tabelaInf.getSelectedRow();
         int id = Integer.parseInt(tabelaInf.getModel().getValueAt(index, 0).toString());
-        int areaConhecimentoID = 3;
+        int areaconhecimentoID = 3;
         try {
-            ps = con.prepareStatement("SELECT areaConhecimento_id FROM areaconhecimento WHERE descricao like ?");
+            ps = con.prepareStatement("SELECT areaconhecimento_id FROM areaconhecimento WHERE descricao like ?");
             ps.setString(1, cbAreaC.getSelectedItem().toString());
             result = ps.executeQuery();
             
             while(result.next()){
-                areaConhecimentoID = result.getInt(1);
+                areaconhecimentoID = result.getInt(1);
             }
         } catch (SQLException ex) {
             Logger.getLogger(CrudCurso.class.getName()).log(Level.SEVERE, null, ex);
@@ -370,7 +370,7 @@ public class CrudCurso extends javax.swing.JFrame {
             
         try {
             ps = con.prepareStatement("UPDATE curso SET nome_curso = ?, sigla = ?, regime = ?, descricao = ?, duracao = ?, "
-                + "grauInstrucao_id = ?, areaConhecimento_id = ? WHERE curso_id = ?");
+                + "grauInstrucao_id = ?, areaconhecimento_id = ? WHERE curso_id = ?");
             
             ps.setString(1, tfCurso.getText());
             ps.setString(2, tfSigla.getText());
@@ -378,7 +378,7 @@ public class CrudCurso extends javax.swing.JFrame {
             ps.setString(4, taDescricao.getText());
             ps.setInt(5, Integer.parseInt(tfDuracao.getText()));
             ps.setInt(6, cbGrauI.getSelectedIndex() + 1);
-            ps.setInt(7, areaConhecimentoID);
+            ps.setInt(7, areaconhecimentoID);
             ps.setInt(8, id);
             
             int res = ps.executeUpdate();
