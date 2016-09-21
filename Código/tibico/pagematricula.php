@@ -13,7 +13,6 @@
 
 	<body class="background">
 		<div>
-			<?php include("php/menu.php") ?>
 			<?php include "php/formalunomatricula.php";?>
 		</div>
 			

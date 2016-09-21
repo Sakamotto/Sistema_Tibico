@@ -18,9 +18,23 @@
 
 	<body class="background">
 
+
+
 		<div class="container" style="margin-top: 15%; width: 400px">
-			<a href="abrir_turma.php" class="btn btn-info" role="button" style="margin-bottom:5px; width: 300px; height: 40px">Abrir Turma</a><br>
-			<a href="formchamada.php" class="btn btn-warning" role="button" style="width: 300px; height: 40px">Chamada</a>			
+
+			<h3 style="text-align:center">Bem vindo ao Gerenciamento de Turmas</h3>
+
+			<br>
+
+			<a href="abrir_turma.php" class="btn btn-info" role="button" style="margin-bottom:5px;width:100%; height: 40px;">Abrir Turma</a>
+			
+			<br>
+			
+			<a href="formchamada_escolherturma.php" class="btn btn-warning" role="button" style="width: 100%;margin-bottom:5px;height: 40px">Realizar Chamada</a>
+
+			<br>
+
+			<a href="formavaliacao.php" class="btn btn-success" role="button" style="width: 100%;margin-bottom:5px;height: 40px"> Cadastrar Avaliação</a>
 		</div>
 	</body>
 </html>
